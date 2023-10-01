@@ -3,14 +3,14 @@
 [yt-dlp](https://github.com/yt-dlp/yt-dlp) plugin for converting Bilibili danmaku into ASS format.
 Powered by [biliass](https://github.com/yutto-dev/biliass).
 
-## Installation
+## Installation and upgrading
 
 Requires yt-dlp 2023.01.02 or above.
 
-You can install this package with pip:
+You can install or upgrade this package with pip:
 
 ```shell
-pip install yt-dlp-danmaku
+pip install -U https://github.com/UlyssesZh/yt-dlp-danmaku/archive/refs/heads/master.zip
 ```
 
 See [installing yt-dlp plugins](https://github.com/yt-dlp/yt-dlp#installing-plugins)
