@@ -16,7 +16,6 @@ class YoutubeDLDanmaku:
 
 	def read_args(self):
 		self.lang = self._kwargs.get('lang', 'danmaku')
-		self.keep_original = self._kwargs.get('keep_original') in self.TRUTH_STRINGS
 		self.reserve_blank = int(self._kwargs.get('reserve_blank', 0))
 		self.font_face = self._kwargs.get('font_face', 'sans-serif')
 		self.font_size = float(self._kwargs.get('font_size', 25))
@@ -84,5 +83,4 @@ class YoutubeDLDanmaku:
 		with new_path.open('w') as f:
 			f.write(ass)
 
-		to_delete = [] if self.keep_original else [path]
-		return to_delete, info  # return list_of_files_to_delete, info_dict
+		return [path], info

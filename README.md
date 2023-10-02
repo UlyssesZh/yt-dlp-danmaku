@@ -10,7 +10,7 @@ Requires yt-dlp 2023.01.02 or above.
 You can install or upgrade this package with pip:
 
 ```shell
-pip install -U https://github.com/UlyssesZh/yt-dlp-danmaku/archive/refs/heads/master.zip
+pip install -U yt-dlp-danmaku
 ```
 
 See [installing yt-dlp plugins](https://github.com/yt-dlp/yt-dlp#installing-plugins)
@@ -30,7 +30,7 @@ Bilibili videos are originally mp4 format, but this format does not support ASS 
 Therefore, you need to use another format that supports it, such as mkv:
 
 ```shell
-yt-dlp -v --embed-subs --use-postprocessor danmaku --remux-video mkv https://www.bilibili.com/video/BV1Sm4y1N78J
+yt-dlp --embed-subs --use-postprocessor danmaku --remux-video mkv https://www.bilibili.com/video/BV1Sm4y1N78J
 ```
 
 You can then try playing this video with players that support ASS subtitles,
@@ -49,18 +49,40 @@ rm input.mp4 input.danmaku.ass
 
 ### Get ASS subtitle without downloading the video
 
-Because postprocessors are not invoked by yt-dlp when `--skip-download` is on,
-here I provided another way of getting the ASS subtitle:
-
 ```shell
-python -m yt_dlp_danmaku -u https://www.bilibili.com/video/BV1Sm4y1N78J
+yt-dlp --write-subs --use-postprocessor danmaku:when=before_dl --skip-download https://www.bilibili.com/video/BV1Sm4y1N78J
 ```
 
-If you want to parse more options to yt-dlp:
+### Use with mpv
 
 ```shell
-yt-dlp --write-subs --skip-download --no-simulate --dump-single-json https://www.bilibili.com/video/BV1Sm4y1N78J | python -m yt_dlp_danmaku
+mpv --script-opts=ytdl_hook-ytdl_path=yt-dlp --ytdl-raw-options=use-postprocessor=danmaku:when=before_dl,write-subs=,no-simulate=,skip-download= https://www.bilibili.com/video/BV1Sm4y1N78J
 ```
+
+You can turn on and off danmaku by using <kbd>j</kbd> (by default).
+Add `--sid=1` to turn on danmaku on start.
+You can add these options to your mpv config file.
+
+## Configuration
+
+You can pass options to this plugin.
+For example, to set the opacity of danmaku texts to 0.1 and reserve the bottom 150 pixels, use
+`--use-postprocessor danmaku:text_opacity=0.1;reserve_blank=150`.
+All available options:
+
+| Option | Default | Meaning |
+|-|-|-|
+| `lang` | danmaku | Language selector; you do not normally need to set this |
+| `reserve_blank` | 0 | |
+| `font_face` | sans-serif | |
+| `font_size` | 25 | |
+| `text_opacity` | 0.8 | |
+| `duration_marquee` | 15 | |
+| `duration_still` | 10 | |
+| `comment_filter` | | |
+| `is_reduce_comments` | false | |
+
+Run `biliass -h` for more information about these options.
 
 ## Development
 

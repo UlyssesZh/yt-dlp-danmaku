@@ -24,7 +24,6 @@ if __name__ == '__main__':
 	converter = YoutubeDLDanmaku()
 	converter.lang = args.lang
 	converter.reserve_blank = args.reserve_blank
-	converter.keep_original = args.keep_original
 	converter.font_face = args.font_face
 	converter.font_size = args.font_size
 	converter.text_opacity = args.text_opacity
@@ -46,5 +45,6 @@ if __name__ == '__main__':
 			converter.to_screen('invalid json')
 			sys.exit(1)
 	to_delete, _ = converter.run(info)
-	for path in to_delete:
-		path.unlink()
+	if not args.keep_original:
+		for path in to_delete:
+			path.unlink()
