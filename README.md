@@ -13,9 +13,6 @@ You can install or upgrade this package with pip:
 pip install -U yt-dlp-danmaku
 ```
 
-See [installing yt-dlp plugins](https://github.com/yt-dlp/yt-dlp#installing-plugins)
-for the other methods this plugin package can be installed.
-
 ## Usage
 
 ### Download video along with the ASS subtitle
