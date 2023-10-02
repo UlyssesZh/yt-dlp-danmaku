@@ -88,3 +88,7 @@ Run `biliass -h` for more information about these options.
 
 See the [Plugin Development](https://github.com/yt-dlp/yt-dlp/wiki/Plugin-Development)
 section of the yt-dlp wiki.
+
+## License
+
+MIT.
