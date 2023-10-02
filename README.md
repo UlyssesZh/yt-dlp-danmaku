@@ -60,6 +60,9 @@ You can turn on and off danmaku by using <kbd>j</kbd> (by default).
 Add `--sid=1` to turn on danmaku on start.
 You can add these options to your mpv config file.
 
+*Notice*: this will leave an ASS file in the current directory.
+Delete it afterwards if you do not want it.
+
 ## Configuration
 
 You can pass options to this plugin.
