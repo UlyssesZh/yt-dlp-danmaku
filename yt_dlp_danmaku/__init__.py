@@ -83,4 +83,9 @@ class YoutubeDLDanmaku:
 		with new_path.open('w') as f:
 			f.write(ass)
 
+		files_to_move = info.get('__files_to_move', {})
+		if str(path) in files_to_move:
+			files_to_move[str(new_path)] = str(Path(files_to_move[str(path)]).with_suffix('.ass'))
+			del files_to_move[str(path)]
+
 		return [path], info
