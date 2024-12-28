@@ -66,21 +66,28 @@ Delete it afterwards if you do not want it.
 ## Configuration
 
 You can pass options to this plugin.
-For example, to set the opacity of danmaku texts to 0.1 and reserve the bottom 150 pixels, use
-`--use-postprocessor danmaku:text_opacity=0.1;reserve_blank=150`.
+For example, to set the opacity of danmaku texts to 0.1 and reserve the bottom half, use
+`--use-postprocessor danmaku:text_opacity=0.1;display_region_ratio=0.5`.
 All available options:
 
 | Option | Default | Meaning |
 |-|-|-|
 | `lang` | danmaku | Language selector; you do not normally need to set this |
-| `reserve_blank` | 0 | |
+| `display_region_ratio` | 1.0 | |
 | `font_face` | sans-serif | |
 | `font_size` | 25 | |
 | `text_opacity` | 0.8 | |
 | `duration_marquee` | 15 | |
 | `duration_still` | 10 | |
-| `comment_filter` | | |
-| `is_reduce_comments` | false | |
+| `block_top` | false | |
+| `block_bottom` | false | |
+| `block_scroll` | false | |
+| `block_reverse` | false | |
+| `block_fixed` | false | |
+| `block_special` | false | |
+| `block_colorful` | false | |
+| `block_keyword_patterns` | | |
+| `reduce_comments` | false | |
 
 Run `biliass -h` for more information about these options.
 
