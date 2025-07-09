@@ -89,7 +89,7 @@ class YoutubeDLDanmaku:
 		subtitle['ext'] = 'ass'
 		del subtitle['url']
 		subtitle['data'] = ass
-		with new_path.open('w') as f:
+		with new_path.open('w', encoding='utf-8') as f:
 			f.write(ass)
 
 		files_to_move = info.get('__files_to_move', {})
