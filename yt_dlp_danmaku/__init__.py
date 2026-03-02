@@ -71,7 +71,7 @@ class YoutubeDLDanmaku:
 		with path.open('rb') as f:
 			source = f.read()
 
-		print(input_format, width, height, self.display_region_ratio, self.font_face, self.font_size, self.text_opacity, self.duration_marquee, self.duration_still, self.block_options, self.reduce_comments)
+		print(input_format, width, height, self.display_region_ratio, self.font_face, self.font_size, self.text_opacity, self.duration_marquee, self.duration_still, self.block_options, self.reduce_comments, file=sys.stderr)
 		ass = convert_to_ass(
 			source, width, height,
 			input_format=input_format,
