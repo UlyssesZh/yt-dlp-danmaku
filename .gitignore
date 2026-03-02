@@ -4,3 +4,5 @@ __pycache__
 temp/
 build/
 dist/
+venv
+test
