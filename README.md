@@ -75,7 +75,7 @@ All available options:
 | `lang` | danmaku | Language selector; you do not normally need to set this |
 | `display_region_ratio` | 1.0 | |
 | `font_face` | sans-serif | |
-| `font_size` | 25 | |
+| `font_size` | max(width,height)/60 | |
 | `text_opacity` | 0.8 | |
 | `duration_marquee` | 15 | |
 | `duration_still` | 10 | |

@@ -19,6 +19,7 @@ class YoutubeDLDanmaku:
 		self.display_region_ratio = float(self._kwargs.get('display_region_ratio', 1.0))
 		self.font_face = self._kwargs.get('font_face', 'sans-serif')
 		self.font_size = float(self._kwargs.get('font_size', 25))
+		self.unspecified_font_size = not self._kwargs.get('font_size', False)
 		self.text_opacity = float(self._kwargs.get('text_opacity', 0.8))
 		self.duration_marquee = float(self._kwargs.get('duration_marquee', 15))
 		self.duration_still = float(self._kwargs.get('duration_still', 10))
@@ -71,6 +72,8 @@ class YoutubeDLDanmaku:
 		with path.open('rb') as f:
 			source = f.read()
 
+		if self.unspecified_font_size:
+			self.font_size = max(width, height) / 60
 		print(input_format, width, height, self.display_region_ratio, self.font_face, self.font_size, self.text_opacity, self.duration_marquee, self.duration_still, self.block_options, self.reduce_comments, file=sys.stderr)
 		ass = convert_to_ass(
 			source, width, height,
